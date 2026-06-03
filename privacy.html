@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenschutzerklärung - Stackfolio</title>
+  <meta name="description" content="Datenschutzerklärung für die iOS-App Stackfolio.">
+  <link rel="stylesheet" href="privacy.css">
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">Stackfolio</p>
+      <h1>Datenschutzerklärung</h1>
+      <p class="lede">Diese Datenschutzerklärung erklärt, welche Daten bei der Nutzung der iOS-App Stackfolio verarbeitet werden. Stackfolio ist lokal ausgerichtet: Portfolio-Einträge werden auf deinem Gerät gespeichert und nicht an einen Stackfolio-Backend-Dienst übertragen.</p>
+      <div class="meta" aria-label="Dokumentinformationen">
+        <span class="pill">Stand: 03. Juni 2026</span>
+        <span class="pill">Gültig für: Stackfolio iOS-App</span>
+      </div>
+      <nav class="language-nav" aria-label="Sprache wählen">
+        <a href="privacy.html" aria-current="page">Deutsch</a>
+        <a href="privacy-en.html" lang="en">English</a>
+      </nav>
+    </header>
+
+    <nav class="toc" aria-label="Inhaltsverzeichnis">
+      <a href="#controller">1. Verantwortlicher</a>
+      <a href="#overview">2. Kurzüberblick</a>
+      <a href="#app-data">3. Daten in der App</a>
+      <a href="#external-services">4. Externe Dienste</a>
+      <a href="#hosting">5. Website und Hosting</a>
+      <a href="#legal-basis">6. Rechtsgrundlagen</a>
+      <a href="#retention">7. Speicherdauer</a>
+      <a href="#rights">8. Deine Rechte</a>
+      <a href="#children">9. Kinder</a>
+      <a href="#changes">10. Änderungen</a>
+    </nav>
+
+    <div class="content">
+      <section class="section" id="controller">
+        <h2>1. Verantwortlicher</h2>
+        <p>Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:</p>
+        <dl class="definition-list">
+          <div>
+            <dt>Name</dt>
+            <dd>Jawad Asghar</dd>
+          </div>
+          <div>
+            <dt>Anschrift</dt>
+            <dd>Jahnstrasse 64, 40215 Duesseldorf, Germany</dd>
+          </div>
+          <div>
+            <dt>E-Mail</dt>
+            <dd><a href="mailto:jawadasg@gmail.com">jawadasg@gmail.com</a></dd>
+          </div>
+        </dl>
+        <p>Falls gesetzlich ein Datenschutzbeauftragter benannt werden muss, werden dessen Kontaktdaten an dieser Stelle ergänzt.</p>
+      </section>
+
+      <section class="section" id="overview">
+        <h2>2. Kurzüberblick</h2>
+        <ul>
+          <li>Stackfolio erstellt kein Nutzerkonto und betreibt keine Cloud-Synchronisierung deiner Portfolio-Einträge.</li>
+          <li>Deine Holdings, Kaufdaten, Notizen, Preisalarme und Einstellungen werden lokal auf deinem Gerät gespeichert.</li>
+          <li>Die App enthält nach aktuellem Stand keine Werbung, keine Analytics-SDKs, kein Crash-Reporting-SDK und kein Tracking im Sinne von Apples App Tracking Transparency.</li>
+          <li>Für Marktpreise, Währungsumrechnung, Charts und Nachrichten ruft die App externe Dienste auf. Dabei können technische Zugriffsdaten, insbesondere IP-Adresse, Zeitpunkt, angefragte URL und Geräte-/Netzwerkinformationen, bei den jeweiligen Anbietern verarbeitet werden.</li>
+          <li>Diese Datenschutzseite selbst verwendet keine externen Schriftarten, keine Analysewerkzeuge, kein JavaScript und keine von dieser Seite gesetzten Cookies.</li>
+        </ul>
+      </section>
+
+      <section class="section" id="app-data">
+        <h2>3. Datenverarbeitung in der App</h2>
+
+        <h3>3.1 Lokal gespeicherte Portfolio-Daten</h3>
+        <p>Wenn du Stackfolio verwendest, kannst du Angaben zu physischen Edelmetallbeständen speichern. Dazu können insbesondere Metallart, Gewicht, Kaufdatum, Kaufpreis, Währung, Händler, Notizen, berechnete Werte, Preis-Snapshots und Performance-Angaben gehören.</p>
+        <p>Diese Daten werden mit SwiftData lokal auf deinem Gerät gespeichert. Sie werden nicht an einen Stackfolio-Server übertragen und nicht für Werbung oder Tracking verwendet.</p>
+
+        <h3>3.2 Einstellungen und API-Schlüssel</h3>
+        <p>Die App speichert Einstellungen wie Sprache, Anzeigewährung, Aktualisieren beim Start und optional einen GoldAPI.io API-Schlüssel lokal auf deinem Gerät. Wenn du einen GoldAPI.io API-Schlüssel einträgst, wird dieser nur für Anfragen an GoldAPI.io verwendet und im Request-Header an GoldAPI.io übermittelt.</p>
+
+        <h3>3.3 CSV- und XLSX-Import</h3>
+        <p>Stackfolio kann CSV- und XLSX-Dateien importieren. Die ausgewählte Datei wird auf deinem Gerät gelesen und verarbeitet, um mögliche Holdings zu erkennen, zu validieren und in die lokale Datenbank zu übernehmen. Importdateien werden nicht an einen Stackfolio-Backend-Dienst übertragen.</p>
+
+        <h3>3.4 Preisalarme, lokale Benachrichtigungen und Hintergrundaktualisierung</h3>
+        <p>Du kannst lokale Preisalarme erstellen. Die Alarmkonfiguration und Auswertungszustände werden lokal gespeichert. Wenn du Benachrichtigungen erlaubst, kann iOS lokale Benachrichtigungen anzeigen. Für Hintergrundprüfungen kann iOS der App begrenzte Hintergrundzeit zuweisen; Apple entscheidet, ob und wann eine solche Aktualisierung ausgeführt wird.</p>
+
+        <h3>3.5 Widgets und App Group</h3>
+        <p>Stackfolio kann Daten für iOS-Widgets über eine App Group lokal bereitstellen. Dies dient dazu, Portfolio-Zusammenfassungen im Widget anzuzeigen. Auch diese Daten verbleiben lokal auf deinem Gerät und werden nicht als Cloud-Sync an Stackfolio übertragen.</p>
+
+        <h3>3.6 Keine automatisierten Entscheidungen</h3>
+        <p>Stackfolio verwendet keine automatisierte Entscheidungsfindung im Sinne von Art. 22 DSGVO und kein Profiling mit rechtlicher Wirkung oder ähnlich erheblicher Beeinträchtigung.</p>
+      </section>
+
+      <section class="section" id="external-services">
+        <h2>4. Externe Dienste und Empfänger</h2>
+        <p>Beim Abrufen von Marktinformationen sendet die App technische Anfragen an externe Dienste. Portfolio-Einträge wie Händler, Notizen, Kaufpreislisten oder importierte Dateien werden dabei nicht an den Stackfolio-Gateway übermittelt.</p>
+
+        <h3>4.1 GoldAPI.io</h3>
+        <p>Wenn du einen GoldAPI.io API-Schlüssel hinterlegst, kann Stackfolio aktuelle und historische Gold- oder Silberpreise über GoldAPI.io abrufen. Dabei werden unter anderem Metall, Währung, gegebenenfalls Datum, dein API-Schlüssel und technische Zugriffsdaten an GoldAPI.io übermittelt.</p>
+
+        <h3>4.2 Gold-API.com</h3>
+        <p>Wenn kein GoldAPI.io API-Schlüssel verwendet wird oder ein Abruf fehlschlägt, kann Stackfolio aktuelle Edelmetallpreise über Gold-API.com abrufen. Dabei werden Metallart und technische Zugriffsdaten an Gold-API.com übermittelt.</p>
+
+        <h3>4.3 Frankfurter</h3>
+        <p>Für Währungsumrechnungen kann Stackfolio Frankfurter unter <code>api.frankfurter.dev</code> verwenden. Dabei werden Ausgangswährung, Zielwährung, gegebenenfalls Datum und technische Zugriffsdaten verarbeitet.</p>
+
+        <h3>4.4 Stackfolio Market Insights Gateway auf Cloudflare Workers</h3>
+        <p>Für Chartdaten und Marktnachrichten nutzt Stackfolio den Stackfolio Market Insights Gateway unter <code>stackfolio-market-insights.stackfolio.workers.dev</code>. Der Gateway wird über Cloudflare Workers betrieben. An den Gateway werden insbesondere Zeiträume, gewünschte Marktinformationen und technische Zugriffsdaten übermittelt. Der Gateway ruft seinerseits externe Marktdaten- und Nachrichtenquellen ab, nutzt serverseitige API-Schlüssel und kann technische Daten in Cloudflare-Diensten, etwa Worker-Logs oder KV-Speicher für Marktdaten-Caches, verarbeiten.</p>
+
+        <h3>4.5 Nachrichtenlinks und In-App-Safari</h3>
+        <p>Die App kann Nachrichtenlinks anzeigen. Wenn du einen Artikel öffnest, wird die jeweilige Website in Safari bzw. In-App-Safari geladen. Ab diesem Zeitpunkt verarbeitet der jeweilige Website-Betreiber deine Daten nach seiner eigenen Datenschutzerklärung.</p>
+
+        <h3>4.6 Drittlandübermittlungen</h3>
+        <p>Einige Dienstanbieter können ihren Sitz außerhalb der EU bzw. des EWR haben oder Daten dort verarbeiten. Soweit erforderlich, erfolgt eine solche Verarbeitung auf Grundlage geeigneter Garantien, zum Beispiel Standardvertragsklauseln, Angemessenheitsbeschlüssen oder sonstigen DSGVO-konformen Mechanismen. Vor Veröffentlichung solltest du die jeweils aktuellen Datenschutz- und Auftragsverarbeitungsbedingungen der eingesetzten Anbieter prüfen.</p>
+      </section>
+
+      <section class="section" id="hosting">
+        <h2>5. Datenschutz bei dieser Website</h2>
+        <p>Diese Datenschutzerklärung wird voraussichtlich über GitHub Pages bereitgestellt. Beim Aufruf dieser Website verarbeitet GitHub bzw. Microsoft technische Zugriffsdaten, zum Beispiel IP-Adresse, Browserinformationen, angefragte Datei, Datum und Uhrzeit des Zugriffs. Diese Verarbeitung ist erforderlich, um die Website auszuliefern, Sicherheit zu gewährleisten und Missbrauch zu verhindern.</p>
+        <p>Die von uns bereitgestellten HTML- und CSS-Dateien enthalten keine externen Schriften, keine eingebetteten Analysewerkzeuge, keine Werbung, kein JavaScript und keine von dieser Seite gesetzten Cookies.</p>
+      </section>
+
+      <section class="section" id="legal-basis">
+        <h2>6. Zwecke und Rechtsgrundlagen</h2>
+        <ul>
+          <li>Bereitstellung der App-Funktionen, lokale Speicherung von Holdings, Berechnungen, Import und Einstellungen: Art. 6 Abs. 1 lit. b DSGVO, soweit die Verarbeitung zur Nutzung der App erforderlich ist.</li>
+          <li>Speicherung optionaler lokaler Einstellungen und API-Schlüssel: Art. 6 Abs. 1 lit. b DSGVO bzw. Art. 6 Abs. 1 lit. a DSGVO, soweit du optionale Funktionen bewusst aktivierst.</li>
+          <li>Lokale Benachrichtigungen: Art. 6 Abs. 1 lit. a DSGVO in Verbindung mit deiner iOS-Berechtigung.</li>
+          <li>Technische Bereitstellung, Sicherheit, Fehleranalyse und Missbrauchsvermeidung bei Website, Cloudflare Gateway und externen Abrufen: Art. 6 Abs. 1 lit. f DSGVO. Das berechtigte Interesse liegt in der sicheren und zuverlässigen Bereitstellung der App und ihrer Marktinformationen.</li>
+          <li>Erfüllung gesetzlicher Informationspflichten, insbesondere diese Datenschutzerklärung: Art. 6 Abs. 1 lit. c DSGVO.</li>
+        </ul>
+      </section>
+
+      <section class="section" id="retention">
+        <h2>7. Speicherdauer und Löschung</h2>
+        <p>Lokal gespeicherte Portfolio-Daten bleiben auf deinem Gerät, bis du sie in der App löschst oder die App deinstallierst. Beim Deinstallieren der App entfernt iOS in der Regel auch die lokal gespeicherten App-Daten.</p>
+        <p>Technische Zugriffsdaten bei externen Dienstanbietern werden nach deren jeweiligen Speicherfristen verarbeitet. Stackfolio hat auf diese Speicherfristen nur begrenzten Einfluss. Cache-Daten im Stackfolio Market Insights Gateway dienen der Bereitstellung von Marktinformationen und enthalten keine Portfolio-Einträge der Nutzer.</p>
+      </section>
+
+      <section class="section" id="rights">
+        <h2>8. Deine Datenschutzrechte</h2>
+        <p>Du hast nach Maßgabe der DSGVO insbesondere das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen. Soweit eine Verarbeitung auf Einwilligung beruht, kannst du diese Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen.</p>
+        <p>Zur Ausübung deiner Rechte kannst du uns unter <a href="mailto:jawadasg@gmail.com">jawadasg@gmail.com</a> kontaktieren. Außerdem hast du das Recht, dich bei einer Datenschutzaufsichtsbehörde zu beschweren, insbesondere in dem EU-Mitgliedstaat deines Aufenthaltsorts, Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes.</p>
+      </section>
+
+      <section class="section" id="children">
+        <h2>9. Kinder und Minderjährige</h2>
+        <p>Stackfolio richtet sich nicht gezielt an Kinder. Die App ist als Portfolio- und Marktinformationstool für Personen gedacht, die eigene Edelmetallbestände verwalten. Wenn du glaubst, dass ein Kind personenbezogene Daten an uns übermittelt hat, kontaktiere uns bitte.</p>
+      </section>
+
+      <section class="section" id="changes">
+        <h2>10. Änderungen dieser Datenschutzerklärung</h2>
+        <p>Wir können diese Datenschutzerklärung anpassen, wenn sich die App, eingesetzte Dienste oder rechtliche Anforderungen ändern. Die jeweils aktuelle Version ist auf dieser Seite abrufbar.</p>
+      </section>
+    </div>
+
+    <footer>
+      <p>© 2026 Stackfolio. Diese Datenschutzerklärung beschreibt die aktuelle App-Funktionalität nach bestem Wissen. Sie ersetzt keine individuelle Rechtsberatung.</p>
+    </footer>
+  </main>
+</body>
+</html>

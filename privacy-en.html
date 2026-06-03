@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy - Stackfolio</title>
+  <meta name="description" content="Privacy Policy for the Stackfolio iOS app.">
+  <link rel="stylesheet" href="privacy.css">
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">Stackfolio</p>
+      <h1>Privacy Policy</h1>
+      <p class="lede">This Privacy Policy explains which data is processed when you use the Stackfolio iOS app. Stackfolio is local-first: portfolio entries are stored on your device and are not transmitted to a Stackfolio backend service.</p>
+      <div class="meta" aria-label="Document information">
+        <span class="pill">Last updated: June 3, 2026</span>
+        <span class="pill">Applies to: Stackfolio iOS app</span>
+      </div>
+      <nav class="language-nav" aria-label="Choose language">
+        <a href="privacy.html" lang="de">Deutsch</a>
+        <a href="privacy-en.html" aria-current="page">English</a>
+      </nav>
+    </header>
+
+    <nav class="toc" aria-label="Table of contents">
+      <a href="#controller">1. Controller</a>
+      <a href="#overview">2. Overview</a>
+      <a href="#app-data">3. App Data</a>
+      <a href="#external-services">4. External Services</a>
+      <a href="#hosting">5. Website Hosting</a>
+      <a href="#legal-basis">6. Legal Bases</a>
+      <a href="#retention">7. Retention</a>
+      <a href="#rights">8. Your Rights</a>
+      <a href="#children">9. Children</a>
+      <a href="#changes">10. Changes</a>
+    </nav>
+
+    <div class="content">
+      <section class="section" id="controller">
+        <h2>1. Controller</h2>
+        <p>The controller within the meaning of the General Data Protection Regulation (GDPR) is:</p>
+        <dl class="definition-list">
+          <div>
+            <dt>Name</dt>
+            <dd>Jawad Asghar</dd>
+          </div>
+          <div>
+            <dt>Address</dt>
+            <dd>Jahnstrasse 64, 40215 Duesseldorf, Germany</dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd><a href="mailto:jawadasg@gmail.com">jawadasg@gmail.com</a></dd>
+          </div>
+        </dl>
+        <p>If a data protection officer must be appointed by law, their contact details will be added here.</p>
+      </section>
+
+      <section class="section" id="overview">
+        <h2>2. Overview</h2>
+        <ul>
+          <li>Stackfolio does not create user accounts and does not operate cloud synchronization for your portfolio entries.</li>
+          <li>Your holdings, purchase data, notes, price alerts, and settings are stored locally on your device.</li>
+          <li>As currently implemented, the app does not include advertising, analytics SDKs, crash-reporting SDKs, or tracking within the meaning of Apple's App Tracking Transparency framework.</li>
+          <li>To provide market prices, currency conversion, charts, and news, the app calls external services. Those services may process technical access data, especially IP address, time of access, requested URL, and device or network information.</li>
+          <li>This privacy page itself uses no external fonts, analytics tools, JavaScript, or cookies set by this page.</li>
+        </ul>
+      </section>
+
+      <section class="section" id="app-data">
+        <h2>3. Data Processing in the App</h2>
+
+        <h3>3.1 Locally Stored Portfolio Data</h3>
+        <p>When you use Stackfolio, you may store information about physical precious-metal holdings. This can include metal type, weight, purchase date, purchase price, currency, vendor, notes, calculated values, price snapshots, and performance information.</p>
+        <p>This data is stored locally on your device using SwiftData. It is not transmitted to a Stackfolio server and is not used for advertising or tracking.</p>
+
+        <h3>3.2 Settings and API Keys</h3>
+        <p>The app stores settings such as language, display currency, refresh-on-launch preference, and optionally a GoldAPI.io API key locally on your device. If you enter a GoldAPI.io API key, it is used only for requests to GoldAPI.io and is sent to GoldAPI.io in the request header.</p>
+
+        <h3>3.3 CSV and XLSX Import</h3>
+        <p>Stackfolio can import CSV and XLSX files. The selected file is read and processed on your device to detect, validate, and import potential holdings into the local database. Import files are not transmitted to a Stackfolio backend service.</p>
+
+        <h3>3.4 Price Alerts, Local Notifications, and Background Refresh</h3>
+        <p>You can create local price alerts. Alert configuration and evaluation state are stored locally. If you allow notifications, iOS may display local notifications. For background checks, iOS may grant the app limited background execution time; Apple decides whether and when such a refresh runs.</p>
+
+        <h3>3.5 Widgets and App Group</h3>
+        <p>Stackfolio may make data locally available to iOS widgets through an App Group. This is used to display portfolio summaries in the widget. This data also remains local on your device and is not transmitted to Stackfolio as cloud sync.</p>
+
+        <h3>3.6 No Automated Decision-Making</h3>
+        <p>Stackfolio does not use automated decision-making within the meaning of Article 22 GDPR and does not perform profiling that produces legal effects or similarly significant effects.</p>
+      </section>
+
+      <section class="section" id="external-services">
+        <h2>4. External Services and Recipients</h2>
+        <p>When retrieving market information, the app sends technical requests to external services. Portfolio entries such as vendor names, notes, purchase price lists, or imported files are not transmitted to the Stackfolio gateway.</p>
+
+        <h3>4.1 GoldAPI.io</h3>
+        <p>If you store a GoldAPI.io API key, Stackfolio may retrieve current and historical gold or silver prices from GoldAPI.io. This may transmit the metal, currency, date where applicable, your API key, and technical access data to GoldAPI.io.</p>
+
+        <h3>4.2 Gold-API.com</h3>
+        <p>If no GoldAPI.io API key is used or a request fails, Stackfolio may retrieve current precious-metal prices from Gold-API.com. This transmits the metal type and technical access data to Gold-API.com.</p>
+
+        <h3>4.3 Frankfurter</h3>
+        <p>For currency conversion, Stackfolio may use Frankfurter at <code>api.frankfurter.dev</code>. This may process source currency, target currency, date where applicable, and technical access data.</p>
+
+        <h3>4.4 Stackfolio Market Insights Gateway on Cloudflare Workers</h3>
+        <p>For chart data and market news, Stackfolio uses the Stackfolio Market Insights Gateway at <code>stackfolio-market-insights.stackfolio.workers.dev</code>. The gateway is operated on Cloudflare Workers. Requests to the gateway may include date ranges, requested market information, and technical access data. The gateway retrieves external market-data and news sources, uses server-side API keys, and may process technical data in Cloudflare services, such as Worker logs or KV storage for market-data caches.</p>
+
+        <h3>4.5 News Links and In-App Safari</h3>
+        <p>The app may display news links. If you open an article, the respective website is loaded in Safari or in-app Safari. From that point onward, the operator of the respective website processes your data according to its own privacy policy.</p>
+
+        <h3>4.6 International Transfers</h3>
+        <p>Some service providers may be based outside the EU or EEA, or may process data there. Where required, such processing is based on appropriate safeguards, for example Standard Contractual Clauses, adequacy decisions, or other GDPR-compliant mechanisms. Before publication, you should review the current privacy and data-processing terms of the providers used.</p>
+      </section>
+
+      <section class="section" id="hosting">
+        <h2>5. Privacy on This Website</h2>
+        <p>This Privacy Policy is expected to be provided through GitHub Pages. When this website is accessed, GitHub or Microsoft processes technical access data such as IP address, browser information, requested file, and date and time of access. This processing is necessary to deliver the website, maintain security, and prevent abuse.</p>
+        <p>The HTML and CSS files provided by us contain no external fonts, embedded analytics tools, advertising, JavaScript, or cookies set by this page.</p>
+      </section>
+
+      <section class="section" id="legal-basis">
+        <h2>6. Purposes and Legal Bases</h2>
+        <ul>
+          <li>Providing app functionality, local storage of holdings, calculations, import, and settings: Article 6(1)(b) GDPR, where processing is necessary for use of the app.</li>
+          <li>Storing optional local settings and API keys: Article 6(1)(b) GDPR or Article 6(1)(a) GDPR, where you deliberately enable optional features.</li>
+          <li>Local notifications: Article 6(1)(a) GDPR together with your iOS permission.</li>
+          <li>Technical delivery, security, error analysis, and abuse prevention for the website, Cloudflare gateway, and external requests: Article 6(1)(f) GDPR. The legitimate interest is the secure and reliable provision of the app and its market information.</li>
+          <li>Compliance with legal information obligations, especially this Privacy Policy: Article 6(1)(c) GDPR.</li>
+        </ul>
+      </section>
+
+      <section class="section" id="retention">
+        <h2>7. Retention and Deletion</h2>
+        <p>Locally stored portfolio data remains on your device until you delete it in the app or uninstall the app. When the app is uninstalled, iOS generally removes the locally stored app data as well.</p>
+        <p>Technical access data at external service providers is processed according to their respective retention periods. Stackfolio has only limited influence over those retention periods. Cache data in the Stackfolio Market Insights Gateway is used to provide market information and does not contain users' portfolio entries.</p>
+      </section>
+
+      <section class="section" id="rights">
+        <h2>8. Your Data Protection Rights</h2>
+        <p>Subject to the GDPR, you have in particular the right of access, rectification, erasure, restriction of processing, data portability, and objection to processing based on legitimate interests. Where processing is based on consent, you may withdraw that consent at any time with effect for the future.</p>
+        <p>To exercise your rights, you can contact us at <a href="mailto:jawadasg@gmail.com">jawadasg@gmail.com</a>. You also have the right to lodge a complaint with a data protection supervisory authority, in particular in the EU member state of your residence, workplace, or the place of the alleged infringement.</p>
+      </section>
+
+      <section class="section" id="children">
+        <h2>9. Children and Minors</h2>
+        <p>Stackfolio is not specifically directed at children. The app is intended as a portfolio and market-information tool for people managing their own precious-metal holdings. If you believe that a child has transmitted personal data to us, please contact us.</p>
+      </section>
+
+      <section class="section" id="changes">
+        <h2>10. Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy if the app, services used, or legal requirements change. The current version is available on this page.</p>
+      </section>
+    </div>
+
+    <footer>
+      <p>© 2026 Stackfolio. This Privacy Policy describes the current app functionality to the best of our knowledge. It does not replace individual legal advice.</p>
+    </footer>
+  </main>
+</body>
+</html>
