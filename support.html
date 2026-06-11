@@ -14,7 +14,7 @@
       <h1>Support</h1>
       <p class="lede">Brauchst du Hilfe mit Stackfolio? Auf dieser Seite findest du Kontaktinformationen, Antworten auf häufige Fragen und Hinweise zum Melden von Problemen.</p>
       <div class="meta" aria-label="Supportinformationen">
-        <span class="pill">App-Version: 1.0</span>
+        <span class="pill">App-Version: 1.1</span>
         <span class="pill">Plattform: iOS</span>
         <span class="pill">Antwortzeit: meist 24-48 Stunden</span>
       </div>
@@ -49,7 +49,22 @@
       <p>Deine Holdings, Kaufdaten, Notizen, Einstellungen und Preisalarme werden lokal auf deinem Gerät gespeichert. Stackfolio erstellt kein Konto und synchronisiert deine Portfolio-Einträge nicht mit einem Stackfolio-Backend.</p>
 
       <h3>Welche Daten werden für Marktpreise verwendet?</h3>
-      <p>Stackfolio ruft externe Marktdaten ab, um aktuelle Preise, Währungsumrechnungen, Charts und Nachrichten bereitzustellen. Deine persönlichen Portfolio-Einträge werden dafür nicht an den Stackfolio Market Insights Gateway übertragen.</p>
+      <p>Stackfolio ruft externe Marktdaten ab, um aktuelle Preise, historische Spot-Schätzungen, Währungsumrechnungen, Charts und Nachrichten bereitzustellen. Deine persönlichen Portfolio-Einträge werden dafür nicht an Stackfolio-Server übertragen.</p>
+
+      <h3>Wie funktionieren die Worker-backed Preise?</h3>
+      <p>Seit Version 1.1 lädt Stackfolio aktuelle Gold- und Silberpreise bevorzugt über die Stackfolio Metal Price API. Dieser Cloudflare-Worker stellt normalisierte EUR-Preise pro Gramm bereit und nutzt serverseitige Marktquellen. Falls diese Quelle nicht verfügbar ist, kann die App auf Gold-API.com oder, wenn du einen eigenen Schlüssel eingetragen hast, auf GoldAPI.io zurückfallen.</p>
+
+      <h3>Wofür ist der GoldAPI.io API-Schlüssel?</h3>
+      <p>Ein eigener GoldAPI.io API-Schlüssel ist optional. Normale Live-Preise und Insights funktionieren ohne persönlichen API-Schlüssel über Stackfolio Market Services. Der Schlüssel kann als Fallback für direkte Live-Preis-Anfragen verwendet werden.</p>
+
+      <h3>Was bedeutet die historische Spot-Schätzung beim Kauf?</h3>
+      <p>Beim Erfassen eines Kaufs kann Stackfolio eine historische Spotpreis-Schätzung für Gold oder Silber abrufen. Wenn für den gewählten Tag kein Marktpreis verfügbar ist, zum Beispiel an Wochenenden oder Feiertagen, kann die App den vorherigen verfügbaren Markttag verwenden. Diese Werte sind informativ und können von tatsächlichen Händlerpreisen, Aufgeldern, Spreads, Steuern und Gebühren abweichen.</p>
+
+      <h3>Was zeigt die Marktübersicht?</h3>
+      <p>Die Marktübersicht zeigt Worker-backed Gold- oder Silberdaten in EUR pro Gramm für auswählbare Zeiträume wie 1M, 3M, 6M, YTD und 3Y. Die Kennzahlen und Einordnungen dienen nur der Orientierung.</p>
+
+      <h3>Was zeigt der Portfolio-Value-Chart?</h3>
+      <p>Der Portfolio-Value-Chart schätzt die historische Entwicklung deines Portfolio-Werts anhand deiner lokal gespeicherten Bestände und historischer Metallpreise. Deine Bestandsdaten bleiben dabei auf deinem Gerät; die App fragt nur die benötigten Marktpreise ab.</p>
 
       <h3>Warum können Preise oder Nachrichten manchmal nicht geladen werden?</h3>
       <p>Marktdaten hängen von deiner Internetverbindung und von externen Datenanbietern ab. Wenn ein Dienst vorübergehend nicht erreichbar ist, zeigt Stackfolio vorhandene lokale oder zwischengespeicherte Daten weiter an, soweit diese verfügbar sind.</p>
@@ -93,7 +108,7 @@
         </div>
         <div>
           <dt>Version</dt>
-          <dd>1.0</dd>
+          <dd>1.1</dd>
         </div>
         <div>
           <dt>Plattform</dt>

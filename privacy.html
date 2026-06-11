@@ -14,8 +14,8 @@
       <h1>Datenschutzerklärung / Privacy Policy</h1>
       <p class="lede">Diese Seite enthält die Datenschutzerklärung für die iOS-App Stackfolio auf Deutsch und Englisch. Die deutsche Version steht zuerst, die englische Übersetzung folgt direkt darunter.</p>
       <div class="meta" aria-label="Dokumentinformationen">
-        <span class="pill">Stand: 03. Juni 2026</span>
-        <span class="pill">Last updated: June 3, 2026</span>
+        <span class="pill">Stand: 11. Juni 2026</span>
+        <span class="pill">Last updated: June 11, 2026</span>
         <span class="pill">Gültig für / Applies to: Stackfolio iOS-App</span>
       </div>
       <nav class="language-nav" aria-label="Direkt zur Sprache springen">
@@ -71,7 +71,7 @@
           <li>Stackfolio erstellt kein Nutzerkonto und betreibt keine Cloud-Synchronisierung deiner Portfolio-Einträge.</li>
           <li>Deine Holdings, Kaufdaten, Notizen, Preisalarme und Einstellungen werden lokal auf deinem Gerät gespeichert.</li>
           <li>Die App enthält nach aktuellem Stand keine Werbung, keine Analytics-SDKs, kein Crash-Reporting-SDK und kein Tracking im Sinne von Apples App Tracking Transparency.</li>
-          <li>Für Marktpreise, Währungsumrechnung, Charts und Nachrichten ruft die App externe Dienste auf. Dabei können technische Zugriffsdaten, insbesondere IP-Adresse, Zeitpunkt, angefragte URL und Geräte-/Netzwerkinformationen, bei den jeweiligen Anbietern verarbeitet werden.</li>
+          <li>Für Marktpreise, historische Kaufpreis-Schätzungen, Währungsumrechnung, Charts und Nachrichten ruft die App externe Dienste auf. Dabei können technische Zugriffsdaten, insbesondere IP-Adresse, Zeitpunkt, angefragte URL und Geräte-/Netzwerkinformationen, bei den jeweiligen Anbietern verarbeitet werden.</li>
           <li>Diese Datenschutzseite selbst verwendet keine externen Schriftarten, keine Analysewerkzeuge, kein JavaScript und keine von dieser Seite gesetzten Cookies.</li>
         </ul>
       </section>
@@ -79,11 +79,12 @@
       <section class="section" id="de-app-data">
         <h3>3. Datenverarbeitung in der App</h3>
         <h4>3.1 Lokal gespeicherte Portfolio-Daten</h4>
-        <p>Wenn du Stackfolio verwendest, kannst du Angaben zu physischen Edelmetallbeständen speichern. Dazu können insbesondere Metallart, Gewicht, Kaufdatum, Kaufpreis, Währung, Händler, Notizen, berechnete Werte, Preis-Snapshots und Performance-Angaben gehören.</p>
+        <p>Wenn du Stackfolio verwendest, kannst du Angaben zu physischen Edelmetallbeständen speichern. Dazu können insbesondere Metallart, Gewicht, Kaufdatum, Kaufpreis, Währung, Händler, Notizen, berechnete Werte, Preis-Snapshots, historische Spotpreis-Schätzungen und Performance-Angaben gehören.</p>
         <p>Diese Daten werden mit SwiftData lokal auf deinem Gerät gespeichert. Sie werden nicht an einen Stackfolio-Server übertragen und nicht für Werbung oder Tracking verwendet.</p>
+        <p>Stackfolio kann außerdem lokale Cache-Einträge für historische Metallpreise und historische Kaufpreis-Schätzungen speichern. Diese Cache-Daten dienen dazu, bereits abgerufene Marktwerte erneut zu verwenden und unnötige Netzwerkanfragen zu vermeiden.</p>
 
         <h4>3.2 Einstellungen und API-Schlüssel</h4>
-        <p>Die App speichert Einstellungen wie Sprache, Anzeigewährung, Aktualisieren beim Start und optional einen GoldAPI.io API-Schlüssel lokal auf deinem Gerät. Wenn du einen GoldAPI.io API-Schlüssel einträgst, wird dieser nur für Anfragen an GoldAPI.io verwendet und im Request-Header an GoldAPI.io übermittelt.</p>
+        <p>Die App speichert Einstellungen wie Sprache, Anzeigewährung, Aktualisieren beim Start und optional einen GoldAPI.io API-Schlüssel lokal auf deinem Gerät. Die normalen Live-Preise werden bevorzugt über die Stackfolio Metal Price API geladen. Wenn du einen GoldAPI.io API-Schlüssel einträgst, kann dieser als Fallback für direkte Anfragen an GoldAPI.io verwendet und im Request-Header an GoldAPI.io übermittelt werden.</p>
 
         <h4>3.3 CSV- und XLSX-Import</h4>
         <p>Stackfolio kann CSV- und XLSX-Dateien importieren. Die ausgewählte Datei wird auf deinem Gerät gelesen und verarbeitet, um mögliche Holdings zu erkennen, zu validieren und in die lokale Datenbank zu übernehmen. Importdateien werden nicht an einen Stackfolio-Backend-Dienst übertragen.</p>
@@ -100,24 +101,29 @@
 
       <section class="section" id="de-external-services">
         <h3>4. Externe Dienste und Empfänger</h3>
-        <p>Beim Abrufen von Marktinformationen sendet die App technische Anfragen an externe Dienste. Portfolio-Einträge wie Händler, Notizen, Kaufpreislisten oder importierte Dateien werden dabei nicht an den Stackfolio-Gateway übermittelt.</p>
+        <p>Beim Abrufen von Marktinformationen sendet die App technische Anfragen an externe Dienste. Portfolio-Einträge wie Händler, Notizen, Kaufpreislisten, Bestandslisten oder importierte Dateien werden dabei nicht an Stackfolio-Server übertragen.</p>
 
-        <h4>4.1 GoldAPI.io</h4>
-        <p>Wenn du einen GoldAPI.io API-Schlüssel hinterlegst, kann Stackfolio aktuelle und historische Gold- oder Silberpreise über GoldAPI.io abrufen. Dabei werden unter anderem Metall, Währung, gegebenenfalls Datum, dein API-Schlüssel und technische Zugriffsdaten an GoldAPI.io übermittelt.</p>
+        <h4>4.1 Stackfolio Metal Price API auf Cloudflare Workers</h4>
+        <p>Für aktuelle Metallpreise, historische Kaufpreis-Schätzungen, Marktübersichten und Portfolio-Wert-Charts nutzt Stackfolio die Stackfolio Metal Price API unter <code>metal-price-api.stackfolio.workers.dev</code>. Die API wird über Cloudflare Workers betrieben und nutzt Cloudflare D1 zur Speicherung von Marktpreisen und USD/EUR-Wechselkursen.</p>
+        <p>An diese API werden nur marktbezogene Anfrageparameter übermittelt, zum Beispiel Metall, Zeitraum, Datum, Währung und Einheit. Persönliche Portfolio-Einträge wie Händler, Notizen, Kaufpreise, Bestandslisten oder Importdateien werden nicht an diese API gesendet.</p>
+        <p>Die Stackfolio Metal Price API kann serverseitig Daten aus Cloudflare D1, GoldAPI.io, Stooq, Yahoo Finance und USD/EUR-FX-Daten verwenden. Dabei können technische Zugriffsdaten in Cloudflare-Diensten verarbeitet werden, etwa IP-Adresse, Zeitpunkt, angefragte URL, Worker-Logs oder Sicherheits-/Fehlerdaten.</p>
 
-        <h4>4.2 Gold-API.com</h4>
-        <p>Wenn kein GoldAPI.io API-Schlüssel verwendet wird oder ein Abruf fehlschlägt, kann Stackfolio aktuelle Edelmetallpreise über Gold-API.com abrufen. Dabei werden Metallart und technische Zugriffsdaten an Gold-API.com übermittelt.</p>
+        <h4>4.2 GoldAPI.io</h4>
+        <p>GoldAPI.io kann serverseitig durch die Stackfolio Metal Price API verwendet werden, sofern dort ein API-Schlüssel konfiguriert ist. Wenn du zusätzlich selbst einen GoldAPI.io API-Schlüssel in der App hinterlegst, kann Stackfolio ihn als Fallback für direkte Live-Preis-Anfragen verwenden. Dabei werden unter anderem Metall, Währung, gegebenenfalls Datum, dein API-Schlüssel und technische Zugriffsdaten an GoldAPI.io übermittelt.</p>
 
-        <h4>4.3 Frankfurter</h4>
+        <h4>4.3 Gold-API.com</h4>
+        <p>Wenn ein Live-Preis-Abruf über die bevorzugten Preisquellen fehlschlägt, kann Stackfolio aktuelle Edelmetallpreise über Gold-API.com abrufen. Dabei werden Metallart und technische Zugriffsdaten an Gold-API.com übermittelt.</p>
+
+        <h4>4.4 Frankfurter</h4>
         <p>Für Währungsumrechnungen kann Stackfolio Frankfurter unter <code>api.frankfurter.dev</code> verwenden. Dabei werden Ausgangswährung, Zielwährung, gegebenenfalls Datum und technische Zugriffsdaten verarbeitet.</p>
 
-        <h4>4.4 Stackfolio Market Insights Gateway auf Cloudflare Workers</h4>
+        <h4>4.5 Stackfolio Market Insights Gateway auf Cloudflare Workers</h4>
         <p>Für Chartdaten und Marktnachrichten nutzt Stackfolio den Stackfolio Market Insights Gateway unter <code>stackfolio-market-insights.stackfolio.workers.dev</code>. Der Gateway wird über Cloudflare Workers betrieben. An den Gateway werden insbesondere Zeiträume, gewünschte Marktinformationen und technische Zugriffsdaten übermittelt. Der Gateway ruft seinerseits externe Marktdaten- und Nachrichtenquellen ab, nutzt serverseitige API-Schlüssel und kann technische Daten in Cloudflare-Diensten, etwa Worker-Logs oder KV-Speicher für Marktdaten-Caches, verarbeiten.</p>
 
-        <h4>4.5 Nachrichtenlinks und In-App-Safari</h4>
+        <h4>4.6 Nachrichtenlinks und In-App-Safari</h4>
         <p>Die App kann Nachrichtenlinks anzeigen. Wenn du einen Artikel öffnest, wird die jeweilige Website in Safari bzw. In-App-Safari geladen. Ab diesem Zeitpunkt verarbeitet der jeweilige Website-Betreiber deine Daten nach seiner eigenen Datenschutzerklärung.</p>
 
-        <h4>4.6 Drittlandübermittlungen</h4>
+        <h4>4.7 Drittlandübermittlungen</h4>
         <p>Einige Dienstanbieter können ihren Sitz außerhalb der EU bzw. des EWR haben oder Daten dort verarbeiten. Soweit erforderlich, erfolgt eine solche Verarbeitung auf Grundlage geeigneter Garantien, zum Beispiel Standardvertragsklauseln, Angemessenheitsbeschlüssen oder sonstigen DSGVO-konformen Mechanismen. Vor Veröffentlichung solltest du die jeweils aktuellen Datenschutz- und Auftragsverarbeitungsbedingungen der eingesetzten Anbieter prüfen.</p>
       </section>
 
@@ -133,7 +139,7 @@
           <li>Bereitstellung der App-Funktionen, lokale Speicherung von Holdings, Berechnungen, Import und Einstellungen: Art. 6 Abs. 1 lit. b DSGVO, soweit die Verarbeitung zur Nutzung der App erforderlich ist.</li>
           <li>Speicherung optionaler lokaler Einstellungen und API-Schlüssel: Art. 6 Abs. 1 lit. b DSGVO bzw. Art. 6 Abs. 1 lit. a DSGVO, soweit du optionale Funktionen bewusst aktivierst.</li>
           <li>Lokale Benachrichtigungen: Art. 6 Abs. 1 lit. a DSGVO in Verbindung mit deiner iOS-Berechtigung.</li>
-          <li>Technische Bereitstellung, Sicherheit, Fehleranalyse und Missbrauchsvermeidung bei Website, Cloudflare Gateway und externen Abrufen: Art. 6 Abs. 1 lit. f DSGVO. Das berechtigte Interesse liegt in der sicheren und zuverlässigen Bereitstellung der App und ihrer Marktinformationen.</li>
+          <li>Technische Bereitstellung, Sicherheit, Fehleranalyse und Missbrauchsvermeidung bei Website, Cloudflare Workers, Cloudflare D1, Gateway-APIs und externen Abrufen: Art. 6 Abs. 1 lit. f DSGVO. Das berechtigte Interesse liegt in der sicheren und zuverlässigen Bereitstellung der App und ihrer Marktinformationen.</li>
           <li>Erfüllung gesetzlicher Informationspflichten, insbesondere diese Datenschutzerklärung: Art. 6 Abs. 1 lit. c DSGVO.</li>
         </ul>
       </section>
@@ -141,7 +147,7 @@
       <section class="section" id="de-retention">
         <h3>7. Speicherdauer und Löschung</h3>
         <p>Lokal gespeicherte Portfolio-Daten bleiben auf deinem Gerät, bis du sie in der App löschst oder die App deinstallierst. Beim Deinstallieren der App entfernt iOS in der Regel auch die lokal gespeicherten App-Daten.</p>
-        <p>Technische Zugriffsdaten bei externen Dienstanbietern werden nach deren jeweiligen Speicherfristen verarbeitet. Stackfolio hat auf diese Speicherfristen nur begrenzten Einfluss. Cache-Daten im Stackfolio Market Insights Gateway dienen der Bereitstellung von Marktinformationen und enthalten keine Portfolio-Einträge der Nutzer.</p>
+        <p>Technische Zugriffsdaten bei externen Dienstanbietern werden nach deren jeweiligen Speicherfristen verarbeitet. Stackfolio hat auf diese Speicherfristen nur begrenzten Einfluss. Cache- und Datenbankeinträge in den Stackfolio Market Services dienen der Bereitstellung von Marktinformationen und enthalten keine Portfolio-Einträge der Nutzer.</p>
       </section>
 
       <section class="section" id="de-rights">
@@ -207,7 +213,7 @@
           <li>Stackfolio does not create user accounts and does not operate cloud synchronization for your portfolio entries.</li>
           <li>Your holdings, purchase data, notes, price alerts, and settings are stored locally on your device.</li>
           <li>As currently implemented, the app does not include advertising, analytics SDKs, crash-reporting SDKs, or tracking within the meaning of Apple's App Tracking Transparency framework.</li>
-          <li>To provide market prices, currency conversion, charts, and news, the app calls external services. Those services may process technical access data, especially IP address, time of access, requested URL, and device or network information.</li>
+          <li>To provide market prices, historical purchase estimates, currency conversion, charts, and news, the app calls external services. Those services may process technical access data, especially IP address, time of access, requested URL, and device or network information.</li>
           <li>This privacy page itself uses no external fonts, analytics tools, JavaScript, or cookies set by this page.</li>
         </ul>
       </section>
@@ -215,11 +221,12 @@
       <section class="section" id="en-app-data">
         <h3>3. Data Processing in the App</h3>
         <h4>3.1 Locally Stored Portfolio Data</h4>
-        <p>When you use Stackfolio, you may store information about physical precious-metal holdings. This can include metal type, weight, purchase date, purchase price, currency, vendor, notes, calculated values, price snapshots, and performance information.</p>
+        <p>When you use Stackfolio, you may store information about physical precious-metal holdings. This can include metal type, weight, purchase date, purchase price, currency, vendor, notes, calculated values, price snapshots, historical spot-price estimates, and performance information.</p>
         <p>This data is stored locally on your device using SwiftData. It is not transmitted to a Stackfolio server and is not used for advertising or tracking.</p>
+        <p>Stackfolio may also store local cache entries for historical metal prices and historical purchase price estimates. These cache entries allow the app to reuse already retrieved market values and avoid unnecessary network requests.</p>
 
         <h4>3.2 Settings and API Keys</h4>
-        <p>The app stores settings such as language, display currency, refresh-on-launch preference, and optionally a GoldAPI.io API key locally on your device. If you enter a GoldAPI.io API key, it is used only for requests to GoldAPI.io and is sent to GoldAPI.io in the request header.</p>
+        <p>The app stores settings such as language, display currency, refresh-on-launch preference, and optionally a GoldAPI.io API key locally on your device. Normal live prices are preferably loaded through the Stackfolio Metal Price API. If you enter a GoldAPI.io API key, it may be used as a fallback for direct requests to GoldAPI.io and is sent to GoldAPI.io in the request header.</p>
 
         <h4>3.3 CSV and XLSX Import</h4>
         <p>Stackfolio can import CSV and XLSX files. The selected file is read and processed on your device to detect, validate, and import potential holdings into the local database. Import files are not transmitted to a Stackfolio backend service.</p>
@@ -236,24 +243,29 @@
 
       <section class="section" id="en-external-services">
         <h3>4. External Services and Recipients</h3>
-        <p>When retrieving market information, the app sends technical requests to external services. Portfolio entries such as vendor names, notes, purchase price lists, or imported files are not transmitted to the Stackfolio gateway.</p>
+        <p>When retrieving market information, the app sends technical requests to external services. Portfolio entries such as vendor names, notes, purchase price lists, holdings lists, or imported files are not transmitted to Stackfolio servers.</p>
 
-        <h4>4.1 GoldAPI.io</h4>
-        <p>If you store a GoldAPI.io API key, Stackfolio may retrieve current and historical gold or silver prices from GoldAPI.io. This may transmit the metal, currency, date where applicable, your API key, and technical access data to GoldAPI.io.</p>
+        <h4>4.1 Stackfolio Metal Price API on Cloudflare Workers</h4>
+        <p>For current metal prices, historical purchase estimates, market overviews, and portfolio value charts, Stackfolio uses the Stackfolio Metal Price API at <code>metal-price-api.stackfolio.workers.dev</code>. The API runs on Cloudflare Workers and uses Cloudflare D1 to store market prices and USD/EUR exchange rates.</p>
+        <p>Only market-related query parameters are sent to this API, for example metal, period, date, currency, and unit. Personal portfolio entries such as vendors, notes, purchase prices, holdings lists, or imported files are not sent to this API.</p>
+        <p>The Stackfolio Metal Price API may use server-side data from Cloudflare D1, GoldAPI.io, Stooq, Yahoo Finance, and USD/EUR FX data. Technical access data may be processed in Cloudflare services, such as IP address, time of access, requested URL, Worker logs, or security and error data.</p>
 
-        <h4>4.2 Gold-API.com</h4>
-        <p>If no GoldAPI.io API key is used or a request fails, Stackfolio may retrieve current precious-metal prices from Gold-API.com. This transmits the metal type and technical access data to Gold-API.com.</p>
+        <h4>4.2 GoldAPI.io</h4>
+        <p>GoldAPI.io may be used server-side by the Stackfolio Metal Price API where an API key is configured there. If you also store your own GoldAPI.io API key in the app, Stackfolio may use it as a fallback for direct live-price requests. This may transmit the metal, currency, date where applicable, your API key, and technical access data to GoldAPI.io.</p>
 
-        <h4>4.3 Frankfurter</h4>
+        <h4>4.3 Gold-API.com</h4>
+        <p>If a live-price request through the preferred price sources fails, Stackfolio may retrieve current precious-metal prices from Gold-API.com. This transmits the metal type and technical access data to Gold-API.com.</p>
+
+        <h4>4.4 Frankfurter</h4>
         <p>For currency conversion, Stackfolio may use Frankfurter at <code>api.frankfurter.dev</code>. This may process source currency, target currency, date where applicable, and technical access data.</p>
 
-        <h4>4.4 Stackfolio Market Insights Gateway on Cloudflare Workers</h4>
+        <h4>4.5 Stackfolio Market Insights Gateway on Cloudflare Workers</h4>
         <p>For chart data and market news, Stackfolio uses the Stackfolio Market Insights Gateway at <code>stackfolio-market-insights.stackfolio.workers.dev</code>. The gateway is operated on Cloudflare Workers. Requests to the gateway may include date ranges, requested market information, and technical access data. The gateway retrieves external market-data and news sources, uses server-side API keys, and may process technical data in Cloudflare services, such as Worker logs or KV storage for market-data caches.</p>
 
-        <h4>4.5 News Links and In-App Safari</h4>
+        <h4>4.6 News Links and In-App Safari</h4>
         <p>The app may display news links. If you open an article, the respective website is loaded in Safari or in-app Safari. From that point onward, the operator of the respective website processes your data according to its own privacy policy.</p>
 
-        <h4>4.6 International Transfers</h4>
+        <h4>4.7 International Transfers</h4>
         <p>Some service providers may be based outside the EU or EEA, or may process data there. Where required, such processing is based on appropriate safeguards, for example Standard Contractual Clauses, adequacy decisions, or other GDPR-compliant mechanisms. Before publication, you should review the current privacy and data-processing terms of the providers used.</p>
       </section>
 
@@ -269,7 +281,7 @@
           <li>Providing app functionality, local storage of holdings, calculations, import, and settings: Article 6(1)(b) GDPR, where processing is necessary for use of the app.</li>
           <li>Storing optional local settings and API keys: Article 6(1)(b) GDPR or Article 6(1)(a) GDPR, where you deliberately enable optional features.</li>
           <li>Local notifications: Article 6(1)(a) GDPR together with your iOS permission.</li>
-          <li>Technical delivery, security, error analysis, and abuse prevention for the website, Cloudflare gateway, and external requests: Article 6(1)(f) GDPR. The legitimate interest is the secure and reliable provision of the app and its market information.</li>
+          <li>Technical delivery, security, error analysis, and abuse prevention for the website, Cloudflare Workers, Cloudflare D1, gateway APIs, and external requests: Article 6(1)(f) GDPR. The legitimate interest is the secure and reliable provision of the app and its market information.</li>
           <li>Compliance with legal information obligations, especially this Privacy Policy: Article 6(1)(c) GDPR.</li>
         </ul>
       </section>
@@ -277,7 +289,7 @@
       <section class="section" id="en-retention">
         <h3>7. Retention and Deletion</h3>
         <p>Locally stored portfolio data remains on your device until you delete it in the app or uninstall the app. When the app is uninstalled, iOS generally removes the locally stored app data as well.</p>
-        <p>Technical access data at external service providers is processed according to their respective retention periods. Stackfolio has only limited influence over those retention periods. Cache data in the Stackfolio Market Insights Gateway is used to provide market information and does not contain users' portfolio entries.</p>
+        <p>Technical access data at external service providers is processed according to their respective retention periods. Stackfolio has only limited influence over those retention periods. Cache and database entries in the Stackfolio market services are used to provide market information and do not contain users' portfolio entries.</p>
       </section>
 
       <section class="section" id="en-rights">
